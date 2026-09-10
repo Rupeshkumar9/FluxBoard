@@ -1,0 +1,68 @@
+# ==========================================
+# FluxBoard - Monorepo Git Ignore Rules
+# ==========================================
+
+# 1. Dependencies
+node_modules/
+*/node_modules/
+client/node_modules/
+server/node_modules/
+
+# 2. Environment Variables & Secrets (CRITICAL)
+.env
+.env.*
+!.env.example
+*.env
+server/.env
+client/.env
+server/.env.local
+server/.env.production
+client/.env.local
+client/.env.production
+
+# 3. Production Builds & Compiled Assets
+dist/
+dist-ssr/
+*/dist/
+client/dist/
+build/
+*/build/
+
+# 4. Logs & Debugger Output
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# 5. Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# 6. IDE & Editor Directories
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.sublime-project
+*.sublime-workspace
+
+# 7. Temporary, Scratch & Cache Files
+.temp/
+.tempmediaStorage/
+temp/
+tmp/
+.cache/
+.vite/
