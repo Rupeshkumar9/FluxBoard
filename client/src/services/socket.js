@@ -2,9 +2,13 @@ import { io } from 'socket.io-client';
 
 let socket = null;
 
+const socketUrl = import.meta.env.VITE_API_URL
+  ? import.meta.env.VITE_API_URL.replace(/\/+$/, '')
+  : '/';
+
 export const getSocket = () => {
   if (!socket) {
-    socket = io('/', {
+    socket = io(socketUrl, {
       transports: ['websocket', 'polling'],
       autoConnect: true,
     });

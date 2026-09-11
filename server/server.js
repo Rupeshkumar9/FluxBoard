@@ -37,6 +37,23 @@ app.use('/api/boards', require('./routes/boardRoutes'));
 app.use('/api/columns', require('./routes/columnRoutes'));
 app.use('/api/tasks', require('./routes/taskRoutes'));
 
+// Root endpoint
+app.get('/', (req, res) => {
+  res.json({
+    name: 'FluxBoard API',
+    version: '1.0.0',
+    status: 'online',
+    message: 'FluxBoard Real-time Project Management API is running 🚀',
+    endpoints: {
+      health: '/api/health',
+      auth: '/api/auth',
+      boards: '/api/boards',
+      columns: '/api/columns',
+      tasks: '/api/tasks',
+    },
+  });
+});
+
 // Health check
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', message: 'Server is running 🚀' });
