@@ -18,7 +18,7 @@ client/.env
 server/.env.local
 server/.env.production
 client/.env.local
-client/.env.production
+!client/.env.production
 
 # 3. Production Builds & Compiled Assets
 dist/
