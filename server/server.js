@@ -6,8 +6,24 @@ const { Server } = require('socket.io');
 const connectDB = require('./config/db');
 const errorHandler = require('./middleware/errorHandler');
 
-// Load env variables
-dotenv.config();
+const path = require('path');
+const fs = require('fs');
+
+// Load environment variables based on mode
+const isProduction =
+  process.argv.includes('--production') ||
+  process.env.NODE_ENV === 'production' ||
+  process.env.npm_lifecycle_event === 'start';
+
+const envFileName = isProduction ? '.env.production' : '.env.development';
+const envPath = path.resolve(__dirname, envFileName);
+
+if (fs.existsSync(envPath)) {
+  dotenv.config({ path: envPath });
+  console.log(`⚙️  Loaded environment from ${envFileName}`);
+} else {
+  dotenv.config();
+}
 
 // Connect to MongoDB
 connectDB();

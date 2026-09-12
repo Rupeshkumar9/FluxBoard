@@ -11,14 +11,8 @@ server/node_modules/
 # 2. Environment Variables & Secrets (CRITICAL)
 .env
 .env.*
-!.env.example
 *.env
-server/.env
-client/.env
-server/.env.local
-server/.env.production
-client/.env.local
-!client/.env.production
+!.env.example
 
 # 3. Production Builds & Compiled Assets
 dist/
