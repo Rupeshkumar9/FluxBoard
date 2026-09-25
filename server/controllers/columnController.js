@@ -1,6 +1,6 @@
-const Column = require('../models/Column');
-const Board = require('../models/Board');
-const Task = require('../models/Task');
+import Column from '../models/Column.js';
+import Board from '../models/Board.js';
+import Task from '../models/Task.js';
 
 // @desc    Create a column
 // @route   POST /api/boards/:boardId/columns
@@ -119,4 +119,4 @@ const reorderColumns = async (req, res, next) => {
   }
 };
 
-module.exports = { createColumn, updateColumn, deleteColumn, reorderColumns };
+export { createColumn, updateColumn, deleteColumn, reorderColumns };

@@ -1,7 +1,7 @@
-const Board = require('../models/Board');
-const Column = require('../models/Column');
-const Task = require('../models/Task');
-const User = require('../models/User');
+import Board from '../models/Board.js';
+import Column from '../models/Column.js';
+import Task from '../models/Task.js';
+import User from '../models/User.js';
 
 // @desc    Get all boards for current user
 // @route   GET /api/boards
@@ -250,7 +250,7 @@ const removeMember = async (req, res, next) => {
   }
 };
 
-module.exports = {
+export {
   getBoards,
   getBoard,
   createBoard,

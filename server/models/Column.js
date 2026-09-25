@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const columnSchema = new mongoose.Schema(
   {
@@ -29,4 +29,5 @@ const columnSchema = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model('Column', columnSchema);
+const Column = mongoose.model('Column', columnSchema);
+export default Column;

@@ -1,5 +1,5 @@
-const express = require('express');
-const {
+import express from 'express';
+import {
   getBoards,
   getBoard,
   createBoard,
@@ -7,9 +7,9 @@ const {
   deleteBoard,
   addMember,
   removeMember,
-} = require('../controllers/boardController');
-const { createColumn } = require('../controllers/columnController');
-const auth = require('../middleware/auth');
+} from '../controllers/boardController.js';
+import { createColumn } from '../controllers/columnController.js';
+import auth from '../middleware/auth.js';
 
 const router = express.Router();
 
@@ -22,4 +22,4 @@ router.post('/:id/members', addMember);
 router.delete('/:id/members/:userId', removeMember);
 router.post('/:boardId/columns', createColumn);
 
-module.exports = router;
+export default router;

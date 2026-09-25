@@ -1,13 +1,21 @@
-const express = require('express');
-const cors = require('cors');
-const dotenv = require('dotenv');
-const { createServer } = require('http');
-const { Server } = require('socket.io');
-const connectDB = require('./config/db');
-const errorHandler = require('./middleware/errorHandler');
+import express from 'express';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import { createServer } from 'http';
+import { Server } from 'socket.io';
+import path from 'path';
+import fs from 'fs';
+import { fileURLToPath } from 'url';
 
-const path = require('path');
-const fs = require('fs');
+import connectDB from './config/db.js';
+import errorHandler from './middleware/errorHandler.js';
+import authRoutes from './routes/authRoutes.js';
+import boardRoutes from './routes/boardRoutes.js';
+import columnRoutes from './routes/columnRoutes.js';
+import taskRoutes from './routes/taskRoutes.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Load environment variables based on mode
 const isProduction =
@@ -48,10 +56,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // API Routes
-app.use('/api/auth', require('./routes/authRoutes'));
-app.use('/api/boards', require('./routes/boardRoutes'));
-app.use('/api/columns', require('./routes/columnRoutes'));
-app.use('/api/tasks', require('./routes/taskRoutes'));
+app.use('/api/auth', authRoutes);
+app.use('/api/boards', boardRoutes);
+app.use('/api/columns', columnRoutes);
+app.use('/api/tasks', taskRoutes);
 
 // Root endpoint
 app.get('/', (req, res) => {

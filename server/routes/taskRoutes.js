@@ -1,13 +1,13 @@
-const express = require('express');
-const {
+import express from 'express';
+import {
   createTask,
   getTask,
   updateTask,
   deleteTask,
   reorderTasks,
   addComment,
-} = require('../controllers/taskController');
-const auth = require('../middleware/auth');
+} from '../controllers/taskController.js';
+import auth from '../middleware/auth.js';
 
 const router = express.Router();
 
@@ -18,4 +18,4 @@ router.post('/columns/:columnId', createTask);
 router.route('/:id').get(getTask).put(updateTask).delete(deleteTask);
 router.post('/:id/comments', addComment);
 
-module.exports = router;
+export default router;

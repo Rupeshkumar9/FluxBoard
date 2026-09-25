@@ -1,5 +1,5 @@
-const Task = require('../models/Task');
-const Column = require('../models/Column');
+import Task from '../models/Task.js';
+import Column from '../models/Column.js';
 
 // @desc    Create a task
 // @route   POST /api/columns/:columnId/tasks
@@ -199,7 +199,7 @@ const addComment = async (req, res, next) => {
   }
 };
 
-module.exports = {
+export {
   createTask,
   getTask,
   updateTask,
